@@ -1,0 +1,273 @@
+<!DOCTYPE html>>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homemade Foods</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="logo">
+            Homemade Foods
+        </div>
+        <ul class="nav-links">
+            <li><a href="#">Home</a></li>
+            <li><a href="#organicvegetables">Organic Vegetables</a></li>
+            <li><a href="#pickels">Pickels</a></li>
+            <li><a href="#snacks">Homemade snacks</a></li>
+            <li><a href="#chips">Homemade vadiyalu</a></li>
+            <li><a href="#healthyfood">Healthy Foods</a></li>
+        </ul>
+        <input
+            type="text"
+            id="search"
+            placeholder="Search food..."
+            onkeyup="searchFood()"
+        >
+    </nav>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to homemade foods</h1>
+            <p>Healthy • Tasty • Homemade</p>
+        </div>
+    </section>
+    <section class="recommend-box" id="recommendation">
+        <h2>Recommendations</h2>
+        <p>Click any food item to see recommendations.</p>
+    </section>
+    <section class="recommend-box">
+    <h2>Order History</h2>
+    <div id="history"></div>
+</section>
+    <section id="organicvegetables" class="section">
+        <h2>Organic Vegetables</h2>
+        <div class="food-grid">
+            <div class="card" onclick="openOrderModal('chillies',50)">
+                <img src="images/chillies.jpg" alt="chillies">
+                <h3 class="food-name">Chillies</h3>
+                <p>fresh and organic</p>
+                <p>₹50</p>
+            </div>
+            <div class="card" onclick="openOrderModal('tomatoes',40)">
+                <img src="images/tomatoes.jpg" alt="tomatoes">
+                <h3 class="food-name">Tomatoes</h3>
+                <p>fresh and organic</p>
+                <p>₹40</p>
+            </div>
+            <div class="card" onclick="openOrderModal('curryleaves',40)">
+                <img src="images/curryleaves.jpg" alt="curryleaves">
+                <h3 class="food-name">Curryleaves</h3>
+                <p>fresh and organic</p>
+                <p>₹40</p>
+            </div>
+            <div class="card" onclick="openOrderModal('pumpkin',40)">
+                <img src="images/pumpkin.jpg" alt="pumpkin">
+                <h3 class="food-name">Pumpkin</h3>
+                <p>fresh and organic</p>
+                <p>₹60</p>
+            </div>
+        </div>
+    </section>
+    <section id="pickels" class="section">
+
+        <h2>Pickels</h2>
+
+        <div class="food-grid">
+
+            <div class="card" onclick="openOrderModal('mangopickel',180)">
+                <img src="images/mangopickel.jpg" alt="mangopickel">
+                <h3 class="food-name">Mango pickel(Avakaya)</h3>
+                <p>customization available</p>
+                <p>₹180</p>
+            </div>
+
+            <div class="card" onclick="openOrderModal('drymangopickel',120)">
+                <img src="images/drymangopickel.jpg" alt="drymangopickel">
+                <h3 class="food-name">Dry mango pickel</h3>
+                <p>customization available</p>
+                <p>₹120</p>
+            </div>
+            <div class="card" onclick="openOrderModal('gongurapickel',120)">
+                <img src="images/gongurapickel.jpg" alt="gongurapickel">
+                <h3 class="food-name">Gongurapickel</h3>
+                <p>customization available</p>
+                <p>₹120</p>
+            </div>
+            <div class="card" onclick="openOrderModal('tomatoe',120)">
+                <img src="images/tomatoepickel.jpg" alt="tomatoe">
+                <h3 class="food-name">Tomatoepickel</h3>
+                <p>customization available</p>
+                <p>₹120</p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- Snacks -->
+
+    <section id="snacks" class="section">
+
+        <h2>Homemade snacks</h2>
+
+        <div class="food-grid">
+
+            <div class="card" onclick="openOrderModal('chakralu',25)">
+                <img src="images/chakralu.jpg" alt="chakralu">
+                <h3 class="food-name">Chakralu</h3>
+                <p>1 pack contains 12 pieces</p>
+                <p>₹65</p>
+            </div>
+
+            <div class="card" onclick="openOrderModal('gulabigurthulu',35)">
+                <img src="images/gulabigurthulu.jpg" alt="gulabigurthulu">
+                <h3 class="food-name">Gulabigurthulu</h3>
+                <p>1 pack contains 10 pieces</p>
+                <p>₹80</p>
+            </div>
+            <div class="card" onclick="openOrderModal('ariselu',35)">
+                <img src="images/ariselu.jpg" alt="ariselu">
+                <h3 class="food-name">Ariselu</h3>
+                <p>1 pack contains 12 pieces</p>
+                <p>₹100</p>
+            </div>
+            <div class="card" onclick="openOrderModal('kajjikayalu',35)">
+                <img src="images/kajjikayalu.jpg" alt="kajjikayalu">
+                <h3 class="food-name">Kajjikayalu</h3>
+                <p>1 pack contains 6 pieces</p>
+                <p>₹80</p>
+            </div>
+
+        </div>
+
+    </section>
+    <section id="chips" class="section">
+        <h2>Homade vaddiyalu and powders</h2>
+        <div class="food-grid">
+            <div class="card" onclick="openOrderModal('pindivadiyalu',35)">
+                <img src="images/pindivadiyalu.jpg" alt="chips">
+                <h3 class="food-name">Pindivadiyalu</h3>
+                <p>1 pack contains 30 pieces</p>
+                <p>₹35</p>
+            </div>
+
+            <div class="card" onclick="openOrderModal('GummadiVadiyalu',45)">
+                <img src="images/GummadiVadiyalu.jpg" alt="GummadiVadiyalu">
+                <h3 class="food-name">GummadiVadiyalu</h3>
+                <p>1 pack contains 16-20 pieces</p>
+                <p>₹45</p>
+            </div>
+            <div class="card" onclick="openOrderModal('curdchillis',45)">
+                <img src="images/curdchillis.jpg" alt="curdchillis">
+                <h3 class="food-name">Curdchillis</h3>
+                <p>1 pack having 10 pieces</p>
+                <p>₹55</p>
+            </div>
+            <div class="card" onclick="openOrderModal('curryleavespowder',45)">
+                <img src="images/curryleavespowder.jpg" alt="curryleavespowder">
+                <h3 class="food-name">Curryleaves Powder</h3>
+                <p>Made with homemade curryleaves and available from half kg</p>
+                <p>₹55</p>
+            </div>
+        </div>
+    </section>
+    <section id="Healthy foods" class="section">
+        <h2>Healthy Foods</h2>
+        <div class="food-grid">
+            <div class="card" onclick="openOrderModal('peanut-nuvvululaddu',50)">
+                <img src="images/peanut-nuvvululaddu.jpg" alt="peanut-nuvvululaddu">
+                <h3 class="food-name">Peanut-nuvvululaddu</h3>
+                <p>1 pack contains 10 laddu</p>
+                <p>₹60</p>
+            </div>
+            <div class="card" onclick="openOrderModal('palliundalu',160)">
+                <img src="images/palliundalu.jpg" alt="palliundalu">
+                <h3 class="food-name">Palliundalu</h3>
+                <p>1 pack contains 10 laddu</p>
+                <p>₹90</p>
+            </div>
+            <div class="card" onclick="openOrderModal('ravvaladdu',160)">
+                <img src="images/ravvaladdu.jpg" alt="ravvaladdu">
+                <h3 class="food-name">Ravvaladdu</h3>
+                <p>1 pack contains 6 laddu</p>
+                <p>₹90</p>
+            </div>
+            <div class="card" onclick="openOrderModal('sunnundalu',160)">
+                <img src="images/sunnundalu.jpg" alt="sunnundalu">
+                <h3 class="food-name">Sunnundalu</h3>
+                <p>1 pack contains 6 laddu</p>
+                <p>₹90</p>
+            </div>
+        </div>
+    </section>
+    <footer class="footer">
+        © 2026 Homemade Food Hub
+        <div class="footer-container">
+            <div class="footer-box">
+                <h3>Available</h3>
+                <p>Customization</p>
+                <p>Instant food</p>
+                <p>Organic and fresh</p>
+            </div>
+            <div class="footer-box">
+            <h3>Contact</h3>
+            <p>+91 9876543210</p>
+            <p>homemadefoods@gmail.com</p>
+        </div>
+        <div class="footer-box">
+            <h3>Address</h3>
+            <p>Amalapuram city</p>
+            <p>Andhra Pradesh</p>
+        </div>
+        </div>
+    </footer>
+    <script src="script.js"></script>
+<div id="orderModal" class="modal">
+    <div class="modal-content">
+        <span class="close" onclick="closeModal()">
+            &times;
+        </span>
+        <h2 id="foodName">Food Name</h2>
+        <input
+            type="text"
+            id="customerName"
+            placeholder="Enter Your Name">
+
+        <input
+            type="tel"
+            id="customerPhone"
+            placeholder="Enter Phone Number">
+
+        <textarea
+            id="customerAddress"
+            placeholder="Enter Delivery Address">
+        </textarea>
+
+        <select id="quantity">
+
+            <option value="1">pack of 1</option>
+            <option value="2">pack of 2</option>
+            <option value="3">pack of 3</option>
+
+        </select>
+
+        <h3 id="totalPrice">
+            Total Price: ₹0
+        </h3>
+
+        <button onclick="calculateBill()">
+            Calculate Bill
+        </button>
+
+        <button onclick="confirmOrder()">
+            Confirm Order
+        </button>
+
+    </div>
+
+</div>
+
+</body>
+</html>
