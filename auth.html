@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login / Signup — Homemade Foods</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body class="auth-page">
+    <div class="auth-container">
+        <a href="index.html" class="auth-back">&larr; Back to Home</a>
+
+        <div class="auth-card">
+            <h1>Homemade Foods</h1>
+            <p class="auth-subtitle">Login or create an account to order</p>
+
+            <div class="auth-tabs">
+                <button type="button" class="auth-tab active" data-tab="login">Login</button>
+                <button type="button" class="auth-tab" data-tab="signup">Sign Up</button>
+            </div>
+
+            <!-- Login -->
+            <form id="loginForm" class="auth-form">
+                <label class="field">
+                    <span>Phone Number or Gmail</span>
+                    <input type="text" id="loginContact" placeholder="Enter phone or email" autocomplete="username">
+                    <span id="loginContactStatus" class="field-status" hidden></span>
+                </label>
+
+                <label class="field">
+                    <span>Password</span>
+                    <input type="password" id="loginPassword" placeholder="Enter password" autocomplete="current-password">
+                </label>
+
+                <p id="loginError" class="form-error" role="alert" hidden></p>
+
+                <button type="submit" class="btn-primary auth-submit">Login</button>
+            </form>
+
+            <!-- Signup -->
+            <form id="signupForm" class="auth-form" hidden>
+                <label class="field">
+                    <span>Full Name</span>
+                    <input type="text" id="signupName" placeholder="Enter your name" autocomplete="name">
+                </label>
+
+                <div class="contact-type">
+                    <span class="field-label">Sign up with</span>
+                    <div class="contact-toggle">
+                        <button type="button" class="toggle-btn active" data-type="phone">Phone</button>
+                        <button type="button" class="toggle-btn" data-type="email">Gmail</button>
+                    </div>
+                </div>
+
+                <label class="field">
+                    <span id="signupContactLabel">Phone Number</span>
+                    <input type="text" id="signupContact" placeholder="Enter 10-digit phone number">
+                    <span id="signupContactStatus" class="field-status" hidden></span>
+                </label>
+
+                <label class="field">
+                    <span>Password</span>
+                    <input type="password" id="signupPassword" placeholder="Create a password (min 6 chars)">
+                </label>
+
+                <label class="field">
+                    <span>Confirm Password</span>
+                    <input type="password" id="signupConfirm" placeholder="Confirm your password">
+                    <span id="confirmStatus" class="field-status" hidden></span>
+                </label>
+
+                <p id="signupError" class="form-error" role="alert" hidden></p>
+
+                <button type="submit" class="btn-primary auth-submit">Create Account</button>
+            </form>
+        </div>
+    </div>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    <script src="auth.js"></script>
+</body>
+</html>

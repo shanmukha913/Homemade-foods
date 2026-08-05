@@ -1,76 +1,59 @@
-<!DOCTYPE html>>
+<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Homemade Foods</title>
-
+    <link rel="icon" type="image/png" href="images/logo.png">
+    <title>Hommy Foods</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <nav class="navbar">
-        <div class="logo">
-            Homemade Foods
+    <nav class="navbar" aria-label="Main navigation">
+        <div class="nav-inner">
+            <img src="images/logo.png" alt="Homemade Foods Logo">
+            <a href="#home" class="logo">Hommy Foods</a>
+
+            <button class="menu-toggle" id="menuToggle" aria-label="Toggle menu" aria-expanded="false">
+                <span></span><span></span><span></span>
+            </button>
+
+            <ul class="nav-links" id="navLinks">
+                <li><a href="#home">Home</a></li>
+                <li><a href="#organicvegetables">Vegetables</a></li>
+                <li><a href="#pickles">Pickles</a></li>
+                <li><a href="#snacks">Snacks</a></li>
+                <li><a href="#vadiyalu">Vadiyalu</a></li>
+                <li><a href="#healthyfood">Healthy</a></li>
+            </ul>
+
+            <div class="nav-actions">
+                <div class="search-wrap">
+                    <input type="search" id="search" placeholder="Search food..." aria-label="Search food">
+                    <button type="button" id="clearSearch" class="clear-search" aria-label="Clear search" hidden>&times;</button>
+                </div>
+                <div class="nav-tools">
+                    <button type="button" class="nav-btn cart-btn" id="openCartBtn" aria-label="Open cart">
+                        🛒 Cart <span class="badge" id="cartCount">0</span>
+                    </button>
+                    <div id="authNav" class="auth-nav">
+                        <a href="auth.html?tab=login" class="nav-btn auth-link">Login</a>
+                        <a href="auth.html?tab=signup" class="nav-btn auth-link auth-signup">Sign Up</a>
+                    </div>
+                </div>
+            </div>
         </div>
-        <ul class="nav-links">
-            <li><a href="#">Home</a></li>
-            <li><a href="#organicvegetables">Organic Vegetables</a></li>
-            <li><a href="#pickels">Pickels</a></li>
-            <li><a href="#snacks">Homemade snacks</a></li>
-            <li><a href="#chips">Homemade vadiyalu</a></li>
-            <li><a href="#healthyfood">Healthy Foods</a></li>
-        </ul>
-        <input
-            type="text"
-            id="search"
-            placeholder="Search food..."
-            onkeyup="searchFood()"
-        >
     </nav>
-    <section class="hero">
+
+    <section class="hero" id="home">
         <div class="hero-content">
-            <h1>Welcome to homemade foods</h1>
+            <h1>Welcome to Homemade Foods</h1>
             <p>Healthy • Tasty • Homemade</p>
-        </div>
-    </section>
-    <section class="recommend-box" id="recommendation">
-        <h2>Recommendations</h2>
-        <p>Click any food item to see recommendations.</p>
-    </section>
-    <section class="recommend-box">
-    <h2>Order History</h2>
-    <div id="history"></div>
-</section>
-    <section id="organicvegetables" class="section">
-        <h2>Organic Vegetables</h2>
-        <div class="food-grid">
-            <div class="card" onclick="openOrderModal('chillies',50)">
-                <img src="images/chillies.jpg" alt="chillies">
-                <h3 class="food-name">Chillies</h3>
-                <p>fresh and organic</p>
-                <p>₹50</p>
-            </div>
-            <div class="card" onclick="openOrderModal('tomatoes',40)">
-                <img src="images/tomatoes.jpg" alt="tomatoes">
-                <h3 class="food-name">Tomatoes</h3>
-                <p>fresh and organic</p>
-                <p>₹40</p>
-            </div>
-            <div class="card" onclick="openOrderModal('curryleaves',40)">
-                <img src="images/curryleaves.jpg" alt="curryleaves">
-                <h3 class="food-name">Curryleaves</h3>
-                <p>fresh and organic</p>
-                <p>₹40</p>
-            </div>
-            <div class="card" onclick="openOrderModal('pumpkin',40)">
-                <img src="images/pumpkin.jpg" alt="pumpkin">
-                <h3 class="food-name">Pumpkin</h3>
-                <p>fresh and organic</p>
-                <p>₹60</p>
+            <div class="hero-actions">
+                <a href="#organicvegetables" class="hero-btn hero-btn-primary">Order Now</a>
+                <a href="#organicvegetables" class="hero-btn hero-btn-secondary">Browse Menu</a>
             </div>
         </div>
     </section>
-    <section id="pickels" class="section">
 
         <h2>Pickels</h2>
 
@@ -173,37 +156,341 @@
             </div>
         </div>
     </section>
-    <section id="Healthy foods" class="section">
-        <h2>Healthy Foods</h2>
-        <div class="food-grid">
-            <div class="card" onclick="openOrderModal('peanut-nuvvululaddu',50)">
-                <img src="images/peanut-nuvvululaddu.jpg" alt="peanut-nuvvululaddu">
-                <h3 class="food-name">Peanut-nuvvululaddu</h3>
-                <p>1 pack contains 10 laddu</p>
-                <p>₹60</p>
+
+    <main>
+        <section id="organicvegetables" class="section">
+            <h2>Organic Vegetables</h2>
+            <div class="food-grid">
+                <article class="card" data-id="chillies" data-food="Chillies" data-price="50">
+                    <img src="images/chillies.jpg" alt="Chillies" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Chillies</h3>
+                        <div class="rating-row" data-id="chillies"></div>
+                        <p class="card-desc">Fresh and organic</p>
+                        <div class="card-footer">
+                            <span class="price">₹50</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card" data-id="tomatoes" data-food="Tomatoes" data-price="40">
+                    <img src="images/tomatoes.jpg" alt="Tomatoes" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Tomatoes</h3>
+                        <div class="rating-row" data-id="tomatoes"></div>
+                        <p class="card-desc">Fresh and organic</p>
+                        <div class="card-footer">
+                            <span class="price">₹40</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card" data-id="curry-leaves" data-food="Curry Leaves" data-price="40">
+                    <img src="images/curryleaves.jpg" alt="Curry leaves" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Curry Leaves</h3>
+                        <div class="rating-row" data-id="curry-leaves"></div>
+                        <p class="card-desc">Fresh and organic</p>
+                        <div class="card-footer">
+                            <span class="price">₹40</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card" data-id="pumpkin" data-food="Pumpkin" data-price="60">
+                    <img src="images/pumpkin.jpg" alt="Pumpkin" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Pumpkin</h3>
+                        <div class="rating-row" data-id="pumpkin"></div>
+                        <p class="card-desc">Fresh and organic</p>
+                        <div class="card-footer">
+                            <span class="price">₹60</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
-            <div class="card" onclick="openOrderModal('palliundalu',160)">
-                <img src="images/palliundalu.jpg" alt="palliundalu">
-                <h3 class="food-name">Palliundalu</h3>
-                <p>1 pack contains 10 laddu</p>
-                <p>₹90</p>
+        </section>
+
+        <section id="pickles" class="section">
+            <h2>Pickles</h2>
+            <div class="food-grid">
+                <article class="card" data-id="mango-pickle" data-food="Mango Pickle (Avakaya)" data-price="180">
+                    <img src="images/mangopickel.jpg" alt="Mango pickle" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Mango Pickle (Avakaya)</h3>
+                        <div class="rating-row" data-id="mango-pickle"></div>
+                        <p class="card-desc">Customization available</p>
+                        <div class="card-footer">
+                            <span class="price">₹180</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card" data-id="dry-mango-pickle" data-food="Dry Mango Pickle" data-price="120">
+                    <img src="images/drymangopickel.jpg" alt="Dry mango pickle" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Dry Mango Pickle</h3>
+                        <div class="rating-row" data-id="dry-mango-pickle"></div>
+                        <p class="card-desc">Customization available</p>
+                        <div class="card-footer">
+                            <span class="price">₹120</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card" data-id="gongura-pickle" data-food="Gongura Pickle" data-price="120">
+                    <img src="images/gongurapickel.jpg" alt="Gongura pickle" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Gongura Pickle</h3>
+                        <div class="rating-row" data-id="gongura-pickle"></div>
+                        <p class="card-desc">Customization available</p>
+                        <div class="card-footer">
+                            <span class="price">₹120</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card" data-id="tomato-pickle" data-food="Tomato Pickle" data-price="120">
+                    <img src="images/tomatoepickel.jpg" alt="Tomato pickle" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Tomato Pickle</h3>
+                        <div class="rating-row" data-id="tomato-pickle"></div>
+                        <p class="card-desc">Customization available</p>
+                        <div class="card-footer">
+                            <span class="price">₹120</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
-            <div class="card" onclick="openOrderModal('ravvaladdu',160)">
-                <img src="images/ravvaladdu.jpg" alt="ravvaladdu">
-                <h3 class="food-name">Ravvaladdu</h3>
-                <p>1 pack contains 6 laddu</p>
-                <p>₹90</p>
+        </section>
+
+        <section id="snacks" class="section">
+            <h2>Homemade Snacks</h2>
+            <div class="food-grid">
+                <article class="card" data-id="chakralu" data-food="Chakralu" data-price="65">
+                    <img src="images/chakralu.jpg" alt="Chakralu" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Chakralu</h3>
+                        <div class="rating-row" data-id="chakralu"></div>
+                        <p class="card-desc">1 pack contains 12 pieces</p>
+                        <div class="card-footer">
+                            <span class="price">₹65</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card" data-id="gulabi-gurthulu" data-food="Gulabi Gurthulu" data-price="80">
+                    <img src="images/gulabigurthulu.jpg" alt="Gulabi gurthulu" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Gulabi Gurthulu</h3>
+                        <div class="rating-row" data-id="gulabi-gurthulu"></div>
+                        <p class="card-desc">1 pack contains 10 pieces</p>
+                        <div class="card-footer">
+                            <span class="price">₹80</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card" data-id="ariselu" data-food="Ariselu" data-price="100">
+                    <img src="images/ariselu.jpg" alt="Ariselu" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Ariselu</h3>
+                        <div class="rating-row" data-id="ariselu"></div>
+                        <p class="card-desc">1 pack contains 12 pieces</p>
+                        <div class="card-footer">
+                            <span class="price">₹100</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card" data-id="kajjikayalu" data-food="Kajjikayalu" data-price="80">
+                    <img src="images/kajjikayalu.jpg" alt="Kajjikayalu" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Kajjikayalu</h3>
+                        <div class="rating-row" data-id="kajjikayalu"></div>
+                        <p class="card-desc">1 pack contains 6 pieces</p>
+                        <div class="card-footer">
+                            <span class="price">₹80</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
-            <div class="card" onclick="openOrderModal('sunnundalu',160)">
-                <img src="images/sunnundalu.jpg" alt="sunnundalu">
-                <h3 class="food-name">Sunnundalu</h3>
-                <p>1 pack contains 6 laddu</p>
-                <p>₹90</p>
+        </section>
+
+        <section id="vadiyalu" class="section">
+            <h2>Homemade Vadiyalu &amp; Powders</h2>
+            <div class="food-grid">
+                <article class="card" data-id="pindi-vadiyalu" data-food="Pindi Vadiyalu" data-price="35">
+                    <img src="images/pindivadiyalu.jpg" alt="Pindi vadiyalu" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Pindi Vadiyalu</h3>
+                        <div class="rating-row" data-id="pindi-vadiyalu"></div>
+                        <p class="card-desc">1 pack contains 30 pieces</p>
+                        <div class="card-footer">
+                            <span class="price">₹35</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card" data-id="gummadi-vadiyalu" data-food="Gummadi Vadiyalu" data-price="45">
+                    <img src="images/GummadiVadiyalu.jpg" alt="Gummadi vadiyalu" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Gummadi Vadiyalu</h3>
+                        <div class="rating-row" data-id="gummadi-vadiyalu"></div>
+                        <p class="card-desc">1 pack contains 16–20 pieces</p>
+                        <div class="card-footer">
+                            <span class="price">₹45</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card" data-id="curd-chillies" data-food="Curd Chillies" data-price="55">
+                    <img src="images/curdchillis.jpg" alt="Curd chillies" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Curd Chillies</h3>
+                        <div class="rating-row" data-id="curd-chillies"></div>
+                        <p class="card-desc">1 pack has 10 pieces</p>
+                        <div class="card-footer">
+                            <span class="price">₹55</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card" data-id="curry-leaves-powder" data-food="Curry Leaves Powder" data-price="55">
+                    <img src="images/curryleavespowder.jpg" alt="Curry leaves powder" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Curry Leaves Powder</h3>
+                        <div class="rating-row" data-id="curry-leaves-powder"></div>
+                        <p class="card-desc">Made with homemade curry leaves, from half kg</p>
+                        <div class="card-footer">
+                            <span class="price">₹55</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
             </div>
-        </div>
-    </section>
+        </section>
+
+        <section id="healthyfood" class="section">
+            <h2>Healthy Foods</h2>
+            <div class="food-grid">
+                <article class="card" data-id="peanut-laddu" data-food="Peanut Nuvvulu Laddu" data-price="60">
+                    <img src="images/peanut-nuvvululaddu.jpg" alt="Peanut nuvvulu laddu" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Peanut Nuvvulu Laddu</h3>
+                        <div class="rating-row" data-id="peanut-laddu"></div>
+                        <p class="card-desc">1 pack contains 10 laddu</p>
+                        <div class="card-footer">
+                            <span class="price">₹60</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card" data-id="palli-undalu" data-food="Palli Undalu" data-price="90">
+                    <img src="images/palliundalu.jpg" alt="Palli undalu" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Palli Undalu</h3>
+                        <div class="rating-row" data-id="palli-undalu"></div>
+                        <p class="card-desc">1 pack contains 10 laddu</p>
+                        <div class="card-footer">
+                            <span class="price">₹90</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card" data-id="rava-laddu" data-food="Rava Laddu" data-price="90">
+                    <img src="images/ravvaladdu.jpg" alt="Rava laddu" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Rava Laddu</h3>
+                        <div class="rating-row" data-id="rava-laddu"></div>
+                        <p class="card-desc">1 pack contains 6 laddu</p>
+                        <div class="card-footer">
+                            <span class="price">₹90</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <article class="card" data-id="sunnundalu" data-food="Sunnundalu" data-price="90">
+                    <img src="images/sunnundalu.jpg" alt="Sunnundalu" loading="lazy">
+                    <div class="card-body">
+                        <h3 class="food-name">Sunnundalu</h3>
+                        <div class="rating-row" data-id="sunnundalu"></div>
+                        <p class="card-desc">1 pack contains 6 laddu</p>
+                        <div class="card-footer">
+                            <span class="price">₹90</span>
+                            <div class="card-actions">
+                                <button type="button" class="cart-add-btn">Add to Cart</button>
+                                <button type="button" class="order-btn">Order</button>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+            </div>
+        </section>
+    </main>
+
     <footer class="footer">
-        © 2026 Homemade Food Hub
+        <p class="copyright">© 2026 Homyy Foods Hub</p>
         <div class="footer-container">
             <div class="footer-box">
                 <h3>Available</h3>
@@ -212,62 +499,85 @@
                 <p>Organic and fresh</p>
             </div>
             <div class="footer-box">
-            <h3>Contact</h3>
-            <p>+91 9876543210</p>
-            <p>homemadefoods@gmail.com</p>
-        </div>
-        <div class="footer-box">
-            <h3>Address</h3>
-            <p>Amalapuram city</p>
-            <p>Andhra Pradesh</p>
-        </div>
+                <h3>Contact</h3>
+                <p>+91 9876543210</p>
+                <p>homemadefoods@gmail.com</p>
+            </div>
+            <div class="footer-box">
+                <h3>Address</h3>
+                <p>Amalapuram city</p>
+                <p>Andhra Pradesh</p>
+            </div>
         </div>
     </footer>
-    <script src="script.js"></script>
-<div id="orderModal" class="modal">
-    <div class="modal-content">
-        <span class="close" onclick="closeModal()">
-            &times;
-        </span>
-        <h2 id="foodName">Food Name</h2>
-        <input
-            type="text"
-            id="customerName"
-            placeholder="Enter Your Name">
 
-        <input
-            type="tel"
-            id="customerPhone"
-            placeholder="Enter Phone Number">
-
-        <textarea
-            id="customerAddress"
-            placeholder="Enter Delivery Address">
-        </textarea>
-
-        <select id="quantity">
-
-            <option value="1">pack of 1</option>
-            <option value="2">pack of 2</option>
-            <option value="3">pack of 3</option>
-
-        </select>
-
-        <h3 id="totalPrice">
-            Total Price: ₹0
-        </h3>
-
-        <button onclick="calculateBill()">
-            Calculate Bill
-        </button>
-
-        <button onclick="confirmOrder()">
-            Confirm Order
-        </button>
-
+    <!-- Single item order modal -->
+    <div id="orderModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="foodName" hidden>
+        <div class="modal-backdrop" data-close-modal="orderModal"></div>
+        <div class="modal-content">
+            <button type="button" class="close" data-close-modal="orderModal" aria-label="Close">&times;</button>
+            <h2 id="foodName">Food Name</h2>
+            <p class="modal-subtitle">Fill in your details to place an order</p>
+            <label class="field">
+                <span>Your Name</span>
+                <input type="text" id="customerName" placeholder="Enter your name" autocomplete="name">
+            </label>
+            <label class="field">
+                <span>Phone Number</span>
+                <input type="tel" id="customerPhone" placeholder="Enter phone number" autocomplete="tel">
+            </label>
+            <label class="field">
+                <span>Delivery Address</span>
+                <textarea id="customerAddress" placeholder="Enter delivery address" rows="3"></textarea>
+            </label>
+            <label class="field">
+                <span>Quantity</span>
+                <select id="quantity">
+                    <option value="1">Pack of 1</option>
+                    <option value="2">Pack of 2</option>
+                    <option value="3">Pack of 3</option>
+                    <option value="4">Pack of 4</option>
+                    <option value="5">Pack of 5</option>
+                </select>
+            </label>
+            <div class="bill-summary">
+                <p><span>Item price</span><span id="itemPrice">₹0</span></p>
+                <p><span>Delivery</span><span>₹20</span></p>
+                <p class="total-row"><span>Total</span><span id="totalPrice">₹20</span></p>
+            </div>
+            <p id="formError" class="form-error" role="alert" hidden></p>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" data-close-modal="orderModal">Cancel</button>
+                <button type="button" class="btn-primary" id="confirmOrderBtn">Confirm Order</button>
+            </div>
+        </div>
     </div>
 
-</div>
+    <!-- Cart modal -->
+    <div id="cartModal" class="modal" role="dialog" aria-modal="true" aria-labelledby="cartTitle" hidden>
+        <div class="modal-backdrop" data-close-modal="cartModal"></div>
+        <div class="modal-content modal-wide">
+            <button type="button" class="close" data-close-modal="cartModal" aria-label="Close">&times;</button>
+            <h2 id="cartTitle">Your Cart</h2>
+            <div id="cartItems" class="cart-items"></div>
+            <div class="bill-summary" id="cartSummary">
+                <p><span>Subtotal</span><span id="cartSubtotal">₹0</span></p>
+                <p><span>Delivery</span><span>₹20</span></p>
+                <p class="total-row"><span>Total</span><span id="cartTotal">₹20</span></p>
+            </div>
+            <label class="field">
+                <span>Delivery Address</span>
+                <textarea id="cartAddress" placeholder="Enter delivery address" rows="2"></textarea>
+            </label>
+            <p id="cartError" class="form-error" role="alert" hidden></p>
+            <div class="modal-actions">
+                <button type="button" class="btn-secondary" data-close-modal="cartModal">Continue Shopping</button>
+                <button type="button" class="btn-primary" id="checkoutCartBtn">Checkout</button>
+            </div>
+        </div>
+    </div>
 
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden></div>
+    <script src="script.js"></script>
 </body>
 </html>
