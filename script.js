@@ -127,8 +127,8 @@ function prefillOrderForm() {
 
 function renderOrderHistory() {
     const history = document.getElementById("history");
+    if (!history) return;
     const orders = getOrders();
-
     if (orders.length === 0) {
         history.innerHTML = `<p class="empty-history">No orders yet. Place your first order!</p>`;
         return;

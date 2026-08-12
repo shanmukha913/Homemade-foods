@@ -225,19 +225,21 @@ body.modal-open {
 
 .hero {
     margin-top: var(--nav-height);
-    min-height: 420px;
-    background: #ebf7dd;
+    width: 100%;
+    min-height: 0;
+    height: clamp(320px, 42vw, 650px);
+    background-image: url("images/background3.png");
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-size: 100% 85%;
     display: flex;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
+    align-items: flex-end;
+    justify-content: flex-start;
 }
-
 .hero-content {
     max-width: 680px;
     padding: 48px 24px;
 }
-
 .hero h1 {
     font-size: clamp(2rem, 5vw, 3.2rem);
     margin-bottom: 12px;
@@ -267,13 +269,13 @@ body.modal-open {
 }
 
 .hero-btn-primary {
-    background: #4b7f10;
+    background: #5a8f24;
     color: #fff;
     box-shadow: 0 4px 14px rgba(232, 93, 42, 0.35);
 }
 
 .hero-btn-primary:hover {
-    background: #4b7f10
+    background: #4b7f10;
     transform: translateY(-2px);
 }
 
@@ -341,6 +343,7 @@ main {
 
 .section h2 {
     font-size: 1.75rem;
+    color:#5a8f24;
     margin-bottom: 24px;
     padding-bottom: 10px;
     border-bottom: 3px solid var(--green-light);
